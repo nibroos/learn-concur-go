@@ -1,0 +1,19 @@
+version: '3.8'
+
+name: api-dev
+
+services:
+  app:
+    container_name: dev-learn-concur-go
+    image: go/learn-concur-go:${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/app
+    restart: always
+    env_file:
+      - .env
+    command: ["air", "-c", ".air.toml"]

@@ -15,11 +15,15 @@ func main() {
 
     users := []User{
         {ID: 1, Name: "John"},
-        {ID: 2, Name: "Jane"},
+        {ID: 2, Name: "Janea"},
     }
 
     app.Get("/users", func(c *fiber.Ctx) error {
         return c.JSON(users)
+    })
+
+    app.Get("/", func(c *fiber.Ctx) error {
+        return c.SendString("Hellw, sadesz!")
     })
 
     app.Listen(":4000")
